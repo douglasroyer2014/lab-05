@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card chat-app">
+                <div id="plist" class="people-list">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled chat-list mt-2 mb-0" *ngFor="let user of users">
+                        <li class="clearfix" (click)="clickUser(user.usuarioId)">
+                            <fa-icon [icon]="faUser" class="icon"></fa-icon>
+                            <div class="about">
+                                <div class="name">{{user.usuarioId}} - {{user.nome}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat">
+                    <div class="chat-history">
+                        <ul class="m-b-0" *ngFor="let message of messages">
+                            <li class="clearfix">
+                                <div class="message-data" [className]="!message.external ? 'message-data text-right' : 'message-data'">
+                                    <span class="message-data-time">{{message.nome}}</span>
+                                </div>
+                                <div class="message" [className]="message.external ? 'message my-message' : 'message other-message float-right'">{{message.mensagem}}</div>                                    
+                            </li>                               
+                        </ul>
+                    </div>
+                    <div style="display: flex;">
+                        <textarea  id='sendMessageInput' rows="2" type="text-area" placeholder="Mensagem"></textarea>
+                        <button id="buttonSend" class="button-18" (click)="sendMessage($event)">clicke-me</button>                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

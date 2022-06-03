@@ -61,6 +61,8 @@ export class MessageComponent implements OnInit {
     let message = (<HTMLInputElement>document.getElementById("sendMessageInput")).value;
     this.messageService.sendMessage({ usuarioId: this.destinatarioMessage, mensagem: message })
       .subscribe(data => console.log(data))
+      this.messages.push({ nome: 'Douglas', mensagem: message, external: false });
+      (<HTMLInputElement>document.getElementById("sendMessageInput")).value = ''
   }
 
   public listUser() {
